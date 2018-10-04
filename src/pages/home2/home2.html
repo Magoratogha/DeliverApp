@@ -2,19 +2,19 @@
   <h1 ion-text text-center padding color="primary">¡Hola, {{dataUs.user.username}}!</h1>
   <h5 padding-bottom>¿Qué quieres hacer?</h5>
   <ion-list>
-    <button ion-item (click)="crear()">
-      <ion-icon color="primary" item-start name="paper-plane"></ion-icon>
-      <h2>Solocitar una diligencia</h2>
+    <button ion-item (click)="IrMapa()">
+      <ion-icon color="primary" item-start name="search"></ion-icon>
+      <h2>Buscar diligencias disponibles</h2>
     </button>
-    <button ion-item (click)="perfil()">
+    <button ion-item (click)="IrPerfil()">
       <ion-icon color="primary" item-start name="contact"></ion-icon>
       <h2>Ver mi información</h2>
     </button>
-    <!--button ion-item (click)="listadiligencias()">
+    <!--button ion-item (click)="IrHistorial()">
       <ion-icon color="primary" item-start name="list"></ion-icon>
       <h2>Ver diligencias pendientes</h2>
     </button-->
-    <!--button ion-item (click)="listadiligencias()">
+    <!--button ion-item (click)="IrHistorial()">
       <ion-icon color="primary" item-start name="time"></ion-icon>
       <h2>Ver historial de diligencias</h2>
     </button-->

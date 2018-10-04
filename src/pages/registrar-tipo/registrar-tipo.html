@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Elige un tipo de usuario</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      <ion-col col-12>
+        <h1 ion-text color="light">Usuario Normal</h1>
+        <p ion-text color="light">Aquel que se encuentra en apuros y está dispuesto a pagar una recompenza a quien le ayude con su problema.</p>
+        <button ion-button color="light" block round [navPush]="normal">Elegir</button>
+      </ion-col>
+      <ion-col col-12>
+        <h1 ion-text color="primary">Usuario Diligenciario</h1>
+        <p ion-text color="primary">Aquel que puede ayudar al usuario normal en su problema a cambio de una recompenza.</p>
+        <button ion-button color="primary" block round [navPush]="domicilio">Elegir</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

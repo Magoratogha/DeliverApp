@@ -1,0 +1,28 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <div padding text-center>
+          <img src="../../assets/imgs/LogoDeliverApp.png" width="80%">
+        </div>
+        <ion-list inset>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="nickname" placeholder="Nombre de usuario"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" [(ngModel)]="password" placeholder="Contraseña"></ion-input>
+          </ion-item>
+        </ion-list>
+        <div padding-horizontal>
+          <button ion-button block round outline (click)="login()">Ingresar</button>
+        </div>
+        <div padding>
+          <p text-center>
+            ¿No tienes cuenta?
+          </p>
+          <button ion-button block round [navPush]="registro">Registrarse</button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
