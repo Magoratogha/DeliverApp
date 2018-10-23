@@ -1,54 +1,54 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Diligencia</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="Cancelar()">
+    <ion-navbar color="primary">
+        <ion-title>Diligencia</ion-title>
+        <ion-buttons end>
+            <button ion-button (tap)="Cancelar()">
         Volver
       </button>
-    </ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h5 ion-text color="primary">Información de la diligencia</h5>
-  <ion-list>
-    <ion-item>
-      <h3 padding-top ion-text color="primary">Tipo de diligencia</h3>
-      {{tipo}}
-    </ion-item>
-    <ion-item>
-      <h5 padding-top ion-text color="primary">Descripción</h5>
-      <p text-wrap>
-        {{descripcion}}
-      </p>
-    </ion-item>
-  </ion-list>
-  <h5 ion-text color="primary">Información del solicitante</h5>
-  <ion-list>
-    <ion-item>
-      <ion-icon color="primary" item-start name="contact"></ion-icon>
-      <h5 padding-top ion-text color="primary">Nombre</h5>
-      {{nombre}}
-    </ion-item>
-    <ion-item>
-      <ion-icon color="primary" item-start name="call"></ion-icon>
-      <h5 padding-top ion-text color="primary">Teléfono</h5>
-      {{telefono}}
-    </ion-item>
-    <ion-item>
-      <ion-icon color="primary" item-start name="at"></ion-icon>
-      <h5 padding-top ion-text color="primary">Email</h5>
-      {{email}}
-    </ion-item>
-    <ion-item>
-      <ion-icon color="primary" item-start name="cash"></ion-icon>
-      <h5 padding-top ion-text color="primary">Está dispuesto a pagar</h5>
-      ${{pago}}
-    </ion-item>
-  </ion-list>
-  <!--div padding>
-    <button ion-button block round (click)="EnviarOferta()">
+    <h5 ion-text color="primary">Información de la diligencia</h5>
+    <ion-list>
+        <ion-item>
+            <h3 padding-top ion-text color="primary">Tipo de diligencia</h3>
+            {{tipo}}
+        </ion-item>
+        <ion-item>
+            <h5 padding-top ion-text color="primary">Descripción</h5>
+            <p text-wrap>
+                {{descripcion}}
+            </p>
+        </ion-item>
+    </ion-list>
+    <h5 ion-text color="primary">Información del solicitante</h5>
+    <ion-list>
+        <ion-item>
+            <ion-icon color="primary" item-start name="contact"></ion-icon>
+            <h5 padding-top ion-text color="primary">Nombre</h5>
+            {{nombre}}
+        </ion-item>
+        <ion-item>
+            <ion-icon color="primary" item-start name="call"></ion-icon>
+            <h5 padding-top ion-text color="primary">Teléfono</h5>
+            {{telefono}}
+        </ion-item>
+        <ion-item>
+            <ion-icon color="primary" item-start name="at"></ion-icon>
+            <h5 padding-top ion-text color="primary">Email</h5>
+            {{email}}
+        </ion-item>
+        <ion-item>
+            <ion-icon color="primary" item-start name="cash"></ion-icon>
+            <h5 padding-top ion-text color="primary">Está dispuesto a pagar</h5>
+            ${{pago}}
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button ion-button [disabled]="true" block round (tap)="EnviarOferta()">
       Envíale una oferta
     </button>
-  </div-->
+    </div>
 </ion-content>

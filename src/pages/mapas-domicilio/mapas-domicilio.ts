@@ -21,6 +21,8 @@ export class MapasDomicilioPage {
           "features": this.listadil
       }
   }
+  lat:number;
+  lng:number;
 
   constructor(private rest: RestProvider, private modalCtrl: ModalController, private geolocation: Geolocation, public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -56,10 +58,12 @@ export class MapasDomicilioPage {
       this.map.flyTo({
         center: [resp.coords.longitude, resp.coords.latitude],
         zoom: 14
-    });
-      }).catch((error) => {
-        console.log('Error getting location', error);
       });
+      this.lng = resp.coords.longitude;
+      this.lat = resp.coords.latitude;
+    }).catch((error) => {
+        console.log('Error getting location', error);
+    });
   }
 
   loadmap(layer:any) {
@@ -94,7 +98,45 @@ export class MapasDomicilioPage {
     });
     this.map.addControl(navcontrol, 'bottom-right');
 
-    let geocontrol = new mapboxgl.GeolocateControl();
+    let geocontrol = new mapboxgl.GeolocateControl({trackUserLocation: true});
+    this.map.addControl(geocontrol, 'bottom-right');
+  }
+
+  reloadmap(layer:any) {
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWFnb3JhdG9naGEiLCJhIjoiY2pscjB0ZXl2MDAxNzN2cXRmdnc5cHZneCJ9.yAsJhoAogu8D-ki0lEmbVA';
+    this.map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v10?optimize=true',
+      center: [this.lng, this.lat],
+      zoom: 14
+    });
+
+    this.map.on('load', function (){
+      this.addSource('us', layer);
+      this.addLayer({
+        'id': 'usuarios',
+        'type': 'circle',
+        'source': 'us',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+          'circle-radius': 8,
+          'circle-color': 'rgba(179, 54, 54, 1)'
+        }
+      });
+    });
+
+    this.map.on('click', 'usuarios', e => {
+      this.VerInfo(e.features[0].properties);
+    });
+
+    let navcontrol = new mapboxgl.NavigationControl({
+      showCompass: false
+    });
+    this.map.addControl(navcontrol, 'bottom-right');
+
+    let geocontrol = new mapboxgl.GeolocateControl({trackUserLocation: true});
     this.map.addControl(geocontrol, 'bottom-right');
   }
 
@@ -134,7 +176,6 @@ export class MapasDomicilioPage {
         this.listadil.push(elemento);
       }
     });
-    this.loadmap(this.usuarios);
-    this.getLocation();
+    this.reloadmap(this.usuarios);
   }
 }

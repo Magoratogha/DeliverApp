@@ -1,0 +1,29 @@
+<ion-content>
+    <ion-slides pager>
+        <ion-slide *ngFor="let slide of slides">
+            <ion-toolbar>
+                <ion-buttons end>
+                    <button ion-button color="primary" (click)="SkipTuto()">Saltar</button>
+                </ion-buttons>
+            </ion-toolbar>
+            <div padding>
+                <img [src]="slide.image" class="" />
+            </div>
+            <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+            <p [innerHTML]="slide.description"></p>
+        </ion-slide>
+        <ion-slide>
+            <ion-toolbar>
+            </ion-toolbar>
+            <div padding>
+                <img src="assets/imgs/ica-slidebox-img-4.png" class="slide-image" />
+            </div>
+            <h2 class="slide-title">¿Estás listo para empezar?</h2>
+            <div padding>
+                <button ion-button large round color="primary" (click)="SkipTuto()">
+                    Continuar
+                </button>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

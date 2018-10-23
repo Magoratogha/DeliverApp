@@ -15,8 +15,4 @@ export class RegistrarTipoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegistrarTipoPage');
-  }
-
 }

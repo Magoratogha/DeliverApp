@@ -1,50 +1,50 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Nueva diligencia</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="Cancelar()">
+    <ion-navbar color="primary">
+        <ion-title>Nueva diligencia</ion-title>
+        <ion-buttons end>
+            <button ion-button (tap)="Cancelar()">
         Cancelar
       </button>
-    </ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h5 ion-text color="primary">¿Qué tipo de diligencia?</h5>
-  <ion-list>
-    <ion-item>
-      <ion-label>Tipo de diligencia</ion-label>
-      <ion-select [(ngModel)]="tipo" interface="action-sheet">
-        <ion-option value="pago">Realizar un pago</ion-option>
-        <ion-option value="domicilio">Transportar objetos</ion-option>
-        <ion-option value="otro">Otro</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  <h5 ion-text color="primary">Describe tu situación</h5>
-  <p>Cuéntale detalladamente a los demás usuarios que necesitas que hagan por ti.</p>
-  <ion-list>
-    <ion-item>
-      <ion-textarea [(ngModel)]="descripcion" placeholder="Escribe algo..."></ion-textarea>
-    </ion-item>
-  </ion-list>
-  <h5  ion-text color="primary">¿Cuánto estás dispuesto a pagar?</h5>
-  <ion-list>
-    <ion-item>
-      <ion-input type="number" [(ngModel)]="pago" placeholder="$5000"></ion-input>
-    </ion-item>
-  </ion-list>
-  <h5 ion-text color="primary">Elige una ubicación</h5>
-  <p>Establece una ubicación para reunirte con el usuario que hará tu diligencia.</p>
-  <div text-right>
-    <button padding text-center ion-button outline icon-start round (click)="AbrirMapa()">
+    <h5 ion-text color="primary">¿Qué tipo de diligencia?</h5>
+    <ion-list>
+        <ion-item>
+            <ion-label>Tipo de diligencia</ion-label>
+            <ion-select [(ngModel)]="tipo" interface="action-sheet">
+                <ion-option value="pago">Realizar un pago</ion-option>
+                <ion-option value="domicilio">Transportar objetos</ion-option>
+                <ion-option value="otro">Otro</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <h5 ion-text color="primary">Describe tu situación</h5>
+    <p>Cuéntale detalladamente a los demás usuarios que necesitas que hagan por ti.</p>
+    <ion-list>
+        <ion-item>
+            <ion-textarea [(ngModel)]="descripcion" placeholder="Escribe algo..."></ion-textarea>
+        </ion-item>
+    </ion-list>
+    <h5 ion-text color="primary">¿Cuánto estás dispuesto a pagar?</h5>
+    <ion-list>
+        <ion-item>
+            <ion-input type="number" [(ngModel)]="pago" placeholder="$5000"></ion-input>
+        </ion-item>
+    </ion-list>
+    <h5 ion-text color="primary">Elige una ubicación</h5>
+    <p>Establece una ubicación para reunirte con el usuario que hará tu diligencia.</p>
+    <div text-right>
+        <button padding text-center ion-button outline icon-start round (click)="AbrirMapa()">
       <ion-icon name="locate"></ion-icon>
       Abrir mapa
     </button>
-  </div>
-  <div padding>
-    <button ion-button block round (click)="Crear()">
+    </div>
+    <div padding>
+        <button ion-button block round (tap)="Crear()">
       Crear diligencia
     </button>
-  </div>
+    </div>
 </ion-content>

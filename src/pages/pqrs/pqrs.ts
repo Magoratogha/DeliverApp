@@ -7,6 +7,8 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class PqrsPage {
 
+  diligencia:any;
+
   constructor(public viewCtrl: ViewController, public navParams: NavParams) {
   }
 

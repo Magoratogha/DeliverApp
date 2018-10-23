@@ -1,31 +1,31 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Enviar oferta</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="Cancelar()">
+    <ion-navbar color="primary">
+        <ion-title>Enviar oferta</ion-title>
+        <ion-buttons end>
+            <button ion-button (tap)="Cancelar()">
         Cancelar
       </button>
-    </ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h5 ion-text color="primary">Envíale un mensaje al solicitante</h5>
-  <p>Cuéntale detalladamente a el solicitante la oferta que quieres hacerle.</p>
-  <ion-list>
-    <ion-item>
-      <ion-textarea placeholder="Escribe algo..."></ion-textarea>
-    </ion-item>
-  </ion-list>
-  <h5  ion-text color="primary">¿Cuánto estás dispuesto a cobrar?</h5>
-  <ion-list>
-    <ion-item>
-      <ion-input type="number" placeholder="$5000"></ion-input>
-    </ion-item>
-  </ion-list>
-  <div padding>
-    <button ion-button block round (click)="Enviar()">
+    <h5 ion-text color="primary">Envíale un mensaje al solicitante</h5>
+    <p>Cuéntale detalladamente a el solicitante la oferta que quieres hacerle.</p>
+    <ion-list>
+        <ion-item>
+            <ion-textarea placeholder="Escribe algo..."></ion-textarea>
+        </ion-item>
+    </ion-list>
+    <h5 ion-text color="primary">¿Cuánto estás dispuesto a cobrar?</h5>
+    <ion-list>
+        <ion-item>
+            <ion-input type="number" placeholder="$5000"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button ion-button block round (tap)="Enviar()">
       Enviar
     </button>
-  </div>
+    </div>
 </ion-content>

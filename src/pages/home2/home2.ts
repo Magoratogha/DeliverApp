@@ -15,9 +15,6 @@ export class Home2Page {
 
   }
 
-  ionViewDidLoad() {
-  }
-
   IrMapa(){
     this.navCtrl.parent.select(2);
   }

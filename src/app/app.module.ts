@@ -30,6 +30,7 @@ import { InfoDiligenciaPage } from '../pages/info-diligencia/info-diligencia';
 import { EnviarOfertaPage } from '../pages/enviar-oferta/enviar-oferta';
 import { HistorialDomicilioPage } from '../pages/historial-domicilio/historial-domicilio';
 import { RestProvider } from '../providers/rest/rest';
+import { StorageProvider } from '../providers/storage/storage';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { RestProvider } from '../providers/rest/rest';
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
-    HttpClient
+    HttpClient,
+    StorageProvider
   ]
 })
 export class AppModule {}

@@ -1,37 +1,37 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>PQRS</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="Cancelar()">
+    <ion-navbar color="primary">
+        <ion-title>PQRS</ion-title>
+        <ion-buttons end>
+            <button ion-button (tap)="Cancelar()">
         Cancelar
       </button>
-    </ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h5 ion-text color="primary">¿Qué quieres decirnos?</h5>
-  <ion-list>
-    <ion-item>
-      <ion-label>Razón del mensaje</ion-label>
-      <ion-select [(ngModel)]="diligencia" interface="action-sheet">
-        <ion-option value="nes">Peticion</ion-option>
-        <ion-option value="n64">Queja</ion-option>
-        <ion-option value="ps">Reclamo</ion-option>
-        <ion-option value="ps">Sugerencia</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  <h5 ion-text color="primary">Escribe tu mensaje</h5>
-  <p>Cuéntanos detalladamente qué podemos hacer por ti.</p>
-  <ion-list>
-    <ion-item>
-      <ion-textarea placeholder="Escribe algo..."></ion-textarea>
-    </ion-item>
-  </ion-list>
-  <div padding>
-    <button ion-button block round (click)="Enviar()">
+    <h5 ion-text color="primary">¿Qué quieres decirnos?</h5>
+    <ion-list>
+        <ion-item>
+            <ion-label>Razón del mensaje</ion-label>
+            <ion-select [(ngModel)]="diligencia" interface="action-sheet">
+                <ion-option value="nes">Peticion</ion-option>
+                <ion-option value="n64">Queja</ion-option>
+                <ion-option value="ps">Reclamo</ion-option>
+                <ion-option value="ps">Sugerencia</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <h5 ion-text color="primary">Escribe tu mensaje</h5>
+    <p>Cuéntanos detalladamente qué podemos hacer por ti.</p>
+    <ion-list>
+        <ion-item>
+            <ion-textarea placeholder="Escribe algo..."></ion-textarea>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button ion-button block round (tap)="Enviar()">
       Enviar
     </button>
-  </div>
+    </div>
 </ion-content>

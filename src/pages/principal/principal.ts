@@ -28,30 +28,28 @@ export class PrincipalPage {
       "password": this.password
     }
 
-    this.presentLoading();
+    let loader = this.loadingCtrl.create({
+      content: "Cargando...",
+    });
+    loader.present();
 
     this.restProvider.Login(data).then(us =>{
       if(us["user"]["user_type"] == "CL") {
+        loader.dismiss();
         this.app.getRootNav().setRoot(TabsPage, {"data":us});
       }
       else {
         if(us["user"]["user_type"] == "RE") {
+          loader.dismiss();
           this.app.getRootNav().setRoot(Tabs2Page, {"data":us});
         }
       }
     }).catch((error: any) => {
+      loader.dismiss();
       this.toastCtrl.create({
         message: "Usuario o contraseña incorrectos!",
         duration: 3000
       }).present();
     });
-  }
-
-  presentLoading() {
-    const loader = this.loadingCtrl.create({
-      content: "Cargando...",
-      duration: 1500
-    });
-    loader.present();
   }
 }

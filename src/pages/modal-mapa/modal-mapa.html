@@ -1,14 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <ion-content>
-  <div id='map'></div>
-  <p class="float">Mueve el puntero para seleccionar una ubicación</p>
+    <div id='map'></div>
+    <p class="float">Mueve el puntero para seleccionar una ubicación</p>
 </ion-content>
 <ion-footer>
-  <ion-toolbar color="primary">
-    <ion-buttons end>
-      <button ion-button (click)="CerrarModal()">
+    <ion-toolbar color="primary">
+        <ion-buttons end>
+            <button ion-button (tap)="CerrarModal()">
         Seleccionar ubicación
       </button>
-    </ion-buttons>
-  </ion-toolbar>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-footer>
