@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, NavController, ModalController } from 'ionic-angular';
+import { NavParams, NavController, ModalController } from 'ionic-angular';
 import { CrearDiligenciaPage } from '../crear-diligencia/crear-diligencia';
+import { StorageProvider } from '../../providers/storage/storage';
 
 @Component({
   selector: 'page-diligencias',
@@ -10,8 +11,8 @@ export class DiligenciasPage {
 
   dataUs:any;
 
-  constructor(private navParams: NavParams, public navCtrl: NavController, private modalCtrl: ModalController) {
-    this.dataUs = this.navParams.get("data");
+  constructor(private storage: StorageProvider, private navParams: NavParams, public navCtrl: NavController, private modalCtrl: ModalController) {
+    this.dataUs = this.storage.data.user; 
   }
 
   Nuevo(){

@@ -1,11 +1,12 @@
 <ion-content padding>
-    <h1 ion-text color="primary" padding text-center>Ajustes</h1>
-    <ion-chip>
-        <ion-avatar>
-            <img src="assets/imgs/profile.png">
-        </ion-avatar>
-        <ion-label>Nombre</ion-label>
-    </ion-chip>
+    <div text-center padding>
+        <ion-chip color="primary">
+            <ion-avatar>
+                <img src="assets/imgs/profile.png">
+            </ion-avatar>
+            <ion-label>{{dataUs.user.username}}</ion-label>
+        </ion-chip>
+    </div>
     <div padding>
         <button ion-button color="danger" outline block round (tap)="Salir()">Cerrar sesión</button>
     </div>

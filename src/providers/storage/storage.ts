@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 export class StorageProvider {
 
   data = {
-    "token": "",
     "user": {},
-    "tuto": true
+    "tuto": true,
+    "loggued": false
   }
 
   constructor(private storage: Storage) {  
@@ -21,27 +21,36 @@ export class StorageProvider {
     });
   }
 
+  LoadLog() {
+    return this.storage.get('log').then((value) => {
+      if(value == true || value == false){
+        this.data.loggued = value;
+      } 
+    });
+  }
+
   LoadData() {
-    this.storage.ready().then(() => {
-      this.storage.get('token').then( token => {
-        this.data.token = token; 
-      });
-      this.storage.get('user').then( val => {
-        this.data.user = val; 
-      });
+    return this.storage.get('user').then((value) => {
+      this.data.user = (value); 
     });
   }
 
   SetTuto(value: boolean) {
     this.data.tuto = value;
-    this.storage.set('tuto', value);
+    return this.storage.set('tuto', value);
   }
 
-  SetToken(value: string) {
-    this.storage.set('token', value);
+  SetLog(value: boolean) {
+    this.data.loggued = value;
+    return this.storage.set('log', value);
   }
 
-  SetDataUser(value: any) {
-    this.storage.set('user', value);
+  SetData(value: any) {
+    this.data.user = value;
+    return this.storage.set('user', value);
+  }
+
+  RemoveUserData() {
+    return this.storage.remove('user');
   }
 }

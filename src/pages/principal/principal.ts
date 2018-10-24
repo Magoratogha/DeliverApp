@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, App, LoadingController } from 'ionic-angular';
 import { TabsPage } from "../tabs/tabs";
 import { Tabs2Page } from "../tabs2/tabs2";
 import { RegistrarTipoPage } from "../registrar-tipo/registrar-tipo";
 import { ToastController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { StorageProvider } from '../../providers/storage/storage';
 
 @Component({
   selector: 'page-principal',
@@ -19,7 +20,7 @@ export class PrincipalPage {
   nickname:string;
   password:string;
 
-  constructor(public loadingCtrl: LoadingController, public restProvider: RestProvider, public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private app: App) {
+  constructor(public loadingCtrl: LoadingController, public stogare: StorageProvider, public restProvider: RestProvider, public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private app: App) {
   }
 
   login() {
@@ -32,16 +33,23 @@ export class PrincipalPage {
       content: "Cargando...",
     });
     loader.present();
-
     this.restProvider.Login(data).then(us =>{
       if(us["user"]["user_type"] == "CL") {
-        loader.dismiss();
-        this.app.getRootNav().setRoot(TabsPage, {"data":us});
+        this.stogare.SetData(us).then(() => {
+          this.stogare.SetLog(true).then(() => {
+            loader.dismiss();
+            this.app.getRootNav().setRoot(TabsPage);
+          });
+        });
       }
       else {
         if(us["user"]["user_type"] == "RE") {
-          loader.dismiss();
-          this.app.getRootNav().setRoot(Tabs2Page, {"data":us});
+          this.stogare.SetData(us).then(() => {
+            this.stogare.SetLog(true).then(() => {
+              loader.dismiss();
+              this.app.getRootNav().setRoot(Tabs2Page);
+            });
+          });
         }
       }
     }).catch((error: any) => {

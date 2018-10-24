@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, NavParams } from 'ionic-angular';
 import { CrearDiligenciaPage } from '../crear-diligencia/crear-diligencia';
-import { PerfilPage } from '../perfil/perfil';
-import { DiligenciasPage } from '../diligencias/diligencias';
 import { PqrsPage } from '../pqrs/pqrs';
+import { StorageProvider } from '../../providers/storage/storage';
 
 @Component({
   selector: 'page-home',
@@ -13,12 +12,12 @@ export class HomePage {
 
   dataUs:any;
 
-  constructor(private navParams: NavParams, public navCtrl: NavController, private modalCtrl: ModalController) {
-    this.dataUs = this.navParams.get("data");
+  constructor(private storage: StorageProvider, private navParams: NavParams, public navCtrl: NavController, private modalCtrl: ModalController) {
+    this.dataUs = this.storage.data.user;
   }
 
   crear(){
-    let modal = this.modalCtrl.create(CrearDiligenciaPage, {"data": this.dataUs});
+    let modal = this.modalCtrl.create(CrearDiligenciaPage);
     modal.present();
     modal.onDidDismiss(parametros => {
       if(parametros){

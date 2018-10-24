@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Home2Page } from '../home2/home2';
 import { AjustesPage } from '../ajustes/ajustes';
 import { PerfilPage } from '../perfil/perfil';
 import { MapasDomicilioPage } from '../mapas-domicilio/mapas-domicilio';
 import { HistorialDomicilioPage } from '../historial-domicilio/historial-domicilio';
-
 
 @Component({
   selector: 'page-tabs2',
@@ -18,16 +16,12 @@ export class Tabs2Page {
   tab3: any;
   tab4: any;
   tab5: any;
-  params:any;
-
-  constructor(navParams: NavParams) {
-
-    this.params = navParams.data;
-
+  
+  constructor() {
     this.tab1 = Home2Page;
     this.tab2 = PerfilPage;
     this.tab3 = HistorialDomicilioPage;
     this.tab4 = MapasDomicilioPage;
-    this.tab5 = AjustesPage;
+    this.tab5 = AjustesPage;    
   }
 }

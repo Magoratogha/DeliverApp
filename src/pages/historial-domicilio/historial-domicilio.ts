@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { StorageProvider } from "../../providers/storage/storage";
 
 @Component({
   selector: 'page-historial-domicilio',
@@ -7,7 +8,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HistorialDomicilioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  dataUs:any;
+
+  constructor(private storage: StorageProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.dataUs = this.storage.data.user; 
   }
 
 }

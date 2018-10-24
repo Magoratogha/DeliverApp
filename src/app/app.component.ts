@@ -3,6 +3,8 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PrincipalPage } from '../pages/principal/principal';
+import { TabsPage } from '../pages/tabs/tabs';
+import { Tabs2Page } from '../pages/tabs2/tabs2';
 import { StorageProvider } from "../providers/storage/storage";
 
 @Component({
@@ -19,9 +21,23 @@ export class MyApp {
           this.rootPage = "IntroPage";
         }
         else {
-          this.rootPage = PrincipalPage;
+          this.storage.LoadLog().then(() => {
+            if(this.storage.data.loggued){
+              this.storage.LoadData().then(() => {
+                if(this.storage.data.user["user_type"] == "CL") {
+                  this.rootPage = TabsPage;
+                }
+                else {
+                  this.rootPage = Tabs2Page;
+                }
+              });
+            }
+            else {
+              this.rootPage = PrincipalPage;
+            }
+          });
         }
-        statusBar.styleLightContent();
+        statusBar.backgroundColorByHexString("001b21");
         splashScreen.hide();
       });
     });

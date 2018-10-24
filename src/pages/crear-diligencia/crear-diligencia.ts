@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, ViewController, NavParams, ModalController, ToastController } from 'ionic-angular';
+import { ViewController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { ModalMapaPage } from '../modal-mapa/modal-mapa';
 import { RestProvider } from '../../providers/rest/rest';
+import { StorageProvider } from "../../providers/storage/storage";
 
 @Component({
   selector: 'page-crear-diligencia',
@@ -15,9 +16,8 @@ export class CrearDiligenciaPage {
   pago:any;
   descripcion:any;
 
-  constructor(private toastCtrl: ToastController, private http: RestProvider, public viewCtrl: ViewController, private modalCtrl: ModalController, public navParams: NavParams) {
-    this.dataUs = this.navParams.get("data");
-    console.log(this.dataUs);
+  constructor(private storage: StorageProvider, private toastCtrl: ToastController, private http: RestProvider, public viewCtrl: ViewController, private modalCtrl: ModalController, public navParams: NavParams) {
+    this.dataUs = this.storage.data.user;  
   }
 
   Crear(){

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import * as mapboxgl from 'mapbox-gl';
 import { Geolocation } from '@ionic-native/geolocation';
 import { InfoDiligenciaPage } from '../info-diligencia/info-diligencia';

@@ -20,6 +20,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashStatusBarBackgroundColor" value="#001b21" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -80,7 +81,6 @@
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
-    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-geolocation" spec="4.0.1">
@@ -88,5 +88,7 @@
     </plugin>
     <plugin name="cordova-plugin-advanced-http" spec="2.0.1" />
     <plugin name="cordova-sqlite-storage" spec="2.5.0" />
+    <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
+    <plugin name="cordova-plugin-splashscreen" spec="https://github.com/goinnn/cordova-plugin-splashscreen.git#4.0.0#colors" />
     <engine name="android" spec="7.1.1" />
 </widget>

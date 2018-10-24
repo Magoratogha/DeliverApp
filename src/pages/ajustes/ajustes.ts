@@ -1,18 +1,31 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { NavController, NavParams, App, LoadingController } from 'ionic-angular';
 import { PrincipalPage } from '../principal/principal';
+import { StorageProvider } from "../../providers/storage/storage";
 
 @Component({
   selector: 'page-ajustes',
   templateUrl: 'ajustes.html',
 })
 export class AjustesPage {
+  
+  dataUs:any; 
 
-  constructor(private app:App, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private loadingCtrl: LoadingController, private storage: StorageProvider, private app:App, public navCtrl: NavController, public navParams: NavParams) {
+    this.dataUs = this.storage.data.user;  
   }
 
   Salir(){
-    this.app.getRootNav().setRoot(PrincipalPage);
+    let loader = this.loadingCtrl.create({
+      content: "Espera...",
+    });
+    loader.present();
+    this.storage.SetLog(false).then(() => {
+      this.storage.RemoveUserData().then(() => {
+        loader.dismiss();
+        this.app.getRootNav().setRoot(PrincipalPage);
+      });
+    });
   }
 
 }

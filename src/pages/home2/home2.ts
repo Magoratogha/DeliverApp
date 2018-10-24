@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { PqrsPage } from '../pqrs/pqrs';
+import { StorageProvider } from '../../providers/storage/storage';
 
 @Component({
   selector: 'page-home2',
@@ -10,9 +11,8 @@ export class Home2Page {
 
   dataUs:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
-    this.dataUs = this.navParams.get("data");
-
+  constructor(private storage: StorageProvider, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
+    this.dataUs = this.storage.data.user;
   }
 
   IrMapa(){
