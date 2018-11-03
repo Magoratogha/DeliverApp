@@ -5,7 +5,7 @@ import { ToastController } from 'ionic-angular';
 @Injectable()
 export class RestProvider {
 
-  apiUrl = 'https://prueba-jorge-123.herokuapp.com/';
+  apiUrl = 'https://deliverapp-app-movil.herokuapp.com/';
 
   constructor(private Http: HTTP, private toastCtrl: ToastController) {
   }

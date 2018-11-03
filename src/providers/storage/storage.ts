@@ -51,6 +51,7 @@ export class StorageProvider {
   }
 
   RemoveUserData() {
+    this.data.user = {};
     return this.storage.remove('user');
   }
 }
