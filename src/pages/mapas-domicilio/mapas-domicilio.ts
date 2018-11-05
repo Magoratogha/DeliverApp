@@ -178,4 +178,5 @@ export class MapasDomicilioPage {
     });
     this.reloadmap(this.usuarios);
   }
+
 }

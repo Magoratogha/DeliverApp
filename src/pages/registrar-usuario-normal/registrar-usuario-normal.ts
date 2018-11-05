@@ -74,20 +74,29 @@ export class RegistrarUsuarioNormalPage {
           }).present();
         }
         else{
-          let data = {
-            'cellphone': this.cellphone,
-            'document_number': this.document_number,
-            'document_type': this.document_type,
-            'user_type': this.user_type,
-            'user': {
-              'username': this.username,
-              'password': this.password1,
-              'first_name': this.first_name,
-              'last_name': this.last_name,
-              'email': this.email
-            }
-          };
-          this.navCtrl.push(RegistroExitosoPage, {'data': data});
+          let regexp = /^[^0-9]\w+$/;
+          if(!regexp.test(this.username)){
+            this.toastCtrl.create({
+              message: 'Tu nickname no debe contener caracteres especiales ni comenzar con números.',
+              duration: 3000
+            }).present();
+          }
+          else {
+            let data = {
+              'cellphone': this.cellphone,
+              'document_number': this.document_number,
+              'document_type': this.document_type,
+              'user_type': this.user_type,
+              'user': {
+                'username': this.username,
+                'password': this.password1,
+                'first_name': this.first_name,
+                'last_name': this.last_name,
+                'email': this.email
+              }
+            };
+            this.navCtrl.push(RegistroExitosoPage, {'data': data});
+          }
         }
       }
     }

@@ -1,7 +1,7 @@
-<ion-tabs color="primary">
-    <ion-tab tabIcon="home" [root]="tab1" [rootParams]="params"></ion-tab>
-    <ion-tab tabIcon="contact" [root]="tab2" [rootParams]="params"></ion-tab>
-    <ion-tab [enabled]="false" tabIcon="list" [root]="tab3" [rootParams]="params"></ion-tab>
-    <ion-tab tabIcon="map" [root]="tab4" [rootParams]="params"></ion-tab>
-    <ion-tab tabIcon="settings" [root]="tab5" [rootParams]="params"></ion-tab>
-</ion-tabs>
+<super-tabs height="100%" toolbarColor="light" toolbarBackground="primary" indicatorColor="light">
+    <super-tab icon="home" [root]="tab1"></super-tab>
+    <super-tab icon="contact" [root]="tab2"></super-tab>
+    <super-tab icon="list" [root]="tab3"></super-tab>
+    <super-tab icon="map" [root]="tab4"></super-tab>
+    <super-tab icon="settings" [root]="tab5"></super-tab>
+</super-tabs>

@@ -31,6 +31,7 @@ import { EnviarOfertaPage } from '../pages/enviar-oferta/enviar-oferta';
 import { HistorialDomicilioPage } from '../pages/historial-domicilio/historial-domicilio';
 import { RestProvider } from '../providers/rest/rest';
 import { StorageProvider } from '../providers/storage/storage';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { StorageProvider } from '../providers/storage/storage';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -5,8 +5,8 @@
                 <div padding text-center>
                     <img src="../../assets/imgs/LogoDeliverApp.png" width="80%">
                 </div>
-                <ion-list inset>
-                    <ion-item>
+                <ion-list class="divider" inset>
+                    <ion-item class="divider2">
                         <ion-input type="text" [(ngModel)]="nickname" placeholder="Nombre de usuario"></ion-input>
                     </ion-item>
                     <ion-item>
@@ -14,10 +14,10 @@
                     </ion-item>
                 </ion-list>
                 <div padding-horizontal>
-                    <button ion-button block round outline (tap)="login()">Ingresar</button>
+                    <button ion-button block round (tap)="login()">Ingresar</button>
                 </div>
                 <div padding>
-                    <p text-center>
+                    <p text-center ion-text color="dark">
                         ¿No tienes cuenta?
                     </p>
                     <button ion-button block round [navPush]="registro">Registrarse</button>

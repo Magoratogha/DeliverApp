@@ -24,7 +24,7 @@ export class MyApp {
           this.storage.LoadLog().then(() => {
             if(this.storage.data.loggued){
               this.storage.LoadData().then(() => {
-                if(this.storage.data.user["user_type"] == "CL") {
+                if(this.storage.data.user["user"]["user_type"] == "CL") {
                   this.rootPage = TabsPage;
                 }
                 else {

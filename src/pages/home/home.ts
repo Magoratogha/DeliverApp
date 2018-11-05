@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { CrearDiligenciaPage } from '../crear-diligencia/crear-diligencia';
 import { PqrsPage } from '../pqrs/pqrs';
 import { StorageProvider } from '../../providers/storage/storage';
+import { SuperTabsController } from 'ionic2-super-tabs';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,7 @@ export class HomePage {
 
   dataUs:any;
 
-  constructor(private storage: StorageProvider, private navParams: NavParams, public navCtrl: NavController, private modalCtrl: ModalController) {
+  constructor(private storage: StorageProvider, private superTabsCtrl: SuperTabsController, private modalCtrl: ModalController) {
     this.dataUs = this.storage.data.user;
   }
 
@@ -31,11 +32,11 @@ export class HomePage {
   }
 
   perfil(){
-    this.navCtrl.parent.select(1);
+    this.superTabsCtrl.slideTo(1);
   }
 
   listadiligencias(){
-    this.navCtrl.parent.select(2);
+    this.superTabsCtrl.slideTo(2);
   }
 
   contacto(){
