@@ -1,4 +1,4 @@
-# Welcome to DeliverApp repo!
+# Welcome to DeliverApp's official repo!
 ## About DeliverApp
 DeliverApp is a mobile solution for a daily common deliveries problems. Do you need something but you can't go for it? 
 Don't worry, We'll bring you it.
