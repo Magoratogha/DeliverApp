@@ -23,7 +23,7 @@ export class IntroPage {
     },
     {
       title: "Elige a quien más te convenga",
-      description: "Una vez publicado tu anuncio, los demás usuarios podrán verlo y hacerte una contraoferta. Tu puedes elegir la que más se acomode a tus necesidades.",
+      description: "  Una vez publicado tu anuncio, los demás usuarios podrán verlo y hacerte una contraoferta. Tu puedes elegir la que más se acomode a tus necesidades.",
       image: "assets/imgs/ica-slidebox-img-3.png",
     }
   ];
