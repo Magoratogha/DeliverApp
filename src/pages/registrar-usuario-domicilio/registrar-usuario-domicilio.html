@@ -8,7 +8,11 @@
 
 <ion-content>
     <ion-item-group>
-        <ion-item-divider color="primary">Cuéntanos acerca de ti</ion-item-divider>
+        <ion-item-divider color="light">
+            <div ion-text color="dark">
+                Cuéntanos acerca de ti
+            </div>
+        </ion-item-divider>
         <ion-item>
             <ion-icon color="primary" item-start name="contact"></ion-icon>
             <ion-input type="text" [(ngModel)]="first_name" placeholder="Nombre"></ion-input>
@@ -17,24 +21,26 @@
             <ion-input type="text" [(ngModel)]="last_name" placeholder="Apellido"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label stacked>Documento de identidad</ion-label>
-            <ion-select [(ngModel)]="document_type" interface="action-sheet" placeholder="Elige un tipo">
-                <ion-option value="TI">Tarjeta de identidad</ion-option>
-                <ion-option value="CE">Cédula de ciudadanía</ion-option>
-            </ion-select>
-        </ion-item>
-        <ion-item>
-            <ion-input type="number" [(ngModel)]="document_number" placeholder="Numero de documento"></ion-input>
+            <ion-label stacked>
+                <div ion-text color="primary">
+                    Cédula de ciudadanía
+                </div>
+            </ion-label>
+            <ion-input type="number" [(ngModel)]="document_number" placeholder="Número de documento" style="padding-left: 2%;"></ion-input>
         </ion-item>
         <ion-item>
             <ion-icon color="primary" item-start name="at"></ion-icon>
             <ion-input type="email" [(ngModel)]="email" placeholder="Correo electrónico"></ion-input>
         </ion-item>
-        <ion-item padding-bottom>
+        <ion-item>
             <ion-icon color="primary" item-start name="call"></ion-icon>
             <ion-input type="number" [(ngModel)]="cellphone" placeholder="teléfono"></ion-input>
         </ion-item>
-        <ion-item-divider color="primary">Información de la cuenta</ion-item-divider>
+        <ion-item-divider color="light">
+            <div ion-text color="dark">
+                Información de la cuenta
+            </div>
+        </ion-item-divider>
         <ion-item>
             <ion-icon color="primary" item-start name="contact"></ion-icon>
             <ion-input type="text" [(ngModel)]="username" placeholder="Nombre de usuario"></ion-input>

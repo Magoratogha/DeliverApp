@@ -29,7 +29,7 @@ export class RegistrarUsuarioDomicilioPage {
     this.first_name = "";
     this.last_name = "";
     this.document_number = "";
-    this.document_type = "";
+    this.document_type = "CE";
     this.user_type = "RE";
     this.email = "";
     this.cellphone = "";
@@ -47,7 +47,6 @@ export class RegistrarUsuarioDomicilioPage {
     if(this.first_name == "" ||
       this.last_name == "" ||
       this.document_number == "" ||
-      this.document_type == "" ||
       this.email == "" ||
       this.cellphone == "" ||
       this.username == "" ||
