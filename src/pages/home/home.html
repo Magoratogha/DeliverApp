@@ -10,18 +10,18 @@
         <ion-icon color="primary" item-start name="contact"></ion-icon>
         <h2>Ver mi información</h2>
       </button>
-        <button ion-item [disabled]="true" (tap)="listadiligencias()">
+        <button ion-item (tap)="listadiligencias()">
         <ion-icon color="primary" item-start name="list"></ion-icon>
-        <h2>Ver diligencias pendientes</h2>
+        <h2>Ver mis solicitudes</h2>
       </button>
         <button ion-item [disabled]="true" (tap)="listadiligencias()">
         <ion-icon color="primary" item-start name="time"></ion-icon>
-        <h2>Ver historial de diligencias</h2>
+        <h2>Ver mi historial de solicitudes</h2>
       </button>
     </ion-list>
     <h5 padding-bottom>¿Tienes alguna duda?</h5>
     <ion-list>
-        <button ion-item [disabled]="true" (tap)="contacto()">
+        <button ion-item (tap)="contacto()">
         <ion-icon color="primary" item-start name="mail"></ion-icon>
         <h2>¡Escríbenos!</h2>
       </button>

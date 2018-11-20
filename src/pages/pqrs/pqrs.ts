@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-pqrs',
@@ -7,17 +8,26 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class PqrsPage {
 
-  diligencia:any;
+  tipo:any;
+  texto:any;
 
-  constructor(public viewCtrl: ViewController, public navParams: NavParams) {
+  constructor(public toastCtrl: ToastController, public viewCtrl: ViewController, public navParams: NavParams) {
   }
 
   Enviar(){
-    let data = {
-      nombre:"Información de modal",
-      dato:"Hola soy un modal :y"
+    if(this.texto && this.tipo) {
+      this.viewCtrl.dismiss();
+      this.toastCtrl.create({
+        message: 'Gracias por tu mensaje c:',
+        duration: 3000
+      }).present();
     }
-    this.viewCtrl.dismiss(data);
+    else{
+      this.toastCtrl.create({
+        message: 'Todos los campos son obligatorios!',
+        duration: 3000
+      }).present();
+    }
   }
 
   Cancelar(){

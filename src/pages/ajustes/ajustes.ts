@@ -22,8 +22,10 @@ export class AjustesPage {
     loader.present();
     this.storage.SetLog(false).then(() => {
       this.storage.RemoveUserData().then(() => {
-        loader.dismiss();
-        this.app.getRootNav().setRoot(PrincipalPage);
+        this.storage.RemoveDomicilios().then(() => {
+          loader.dismiss();
+          this.app.getRootNav().setRoot(PrincipalPage);
+        });
       });
     });
   }

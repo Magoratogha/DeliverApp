@@ -21,28 +21,35 @@ export class CrearDiligenciaPage {
   }
 
   Crear(){
-    let data = {
-      "type": this.tipo,
-      "willing_pay": this.pago,
-      "customer": this.dataUs.user.user_id,
-      "description": this.descripcion,
-      "latitud": this.ubicacion.lat,
-      "longitud": this.ubicacion.lng
+    if(this.tipo && this.pago && this.dataUs.user.user_id && this.descripcion && this.ubicacion) {
+      let data = {
+        "type": this.tipo,
+        "willing_pay": this.pago,
+        "customer": this.dataUs.user.user_id,
+        "description": this.descripcion,
+        "latitud": this.ubicacion.lat,
+        "longitud": this.ubicacion.lng
+      }
+      this.http.CrearDiligencia(data, this.dataUs.token);
+      this.viewCtrl.dismiss(data);
+      this.toastCtrl.create({
+        message: 'Diligencia creada con exito!',
+        duration: 3000
+      }).present();
     }
-    this.http.CrearDiligencia(data, this.dataUs.token);
-    this.viewCtrl.dismiss();
-    this.toastCtrl.create({
-      message: 'Diligencia creada con exito!',
-      duration: 3000
-    }).present();
+    else{
+      this.toastCtrl.create({
+        message: 'Todos los campos son obligatorios!',
+        duration: 3000
+      }).present();
+    }
   }
 
   AbrirMapa(){
-    let modal = this.modalCtrl.create(ModalMapaPage, {nombre:"Suite modal", compositor:"Hector Fabio Torres Cardona"});
+    let modal = this.modalCtrl.create(ModalMapaPage);
     modal.present();
     modal.onDidDismiss(parametros => {
       if(parametros){
-        console.log("El modal trajo esta info:")
         console.log(parametros);
         this.ubicacion = parametros;
       }

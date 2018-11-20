@@ -24,12 +24,14 @@ export class MyApp {
           this.storage.LoadLog().then(() => {
             if(this.storage.data.loggued){
               this.storage.LoadData().then(() => {
-                if(this.storage.data.user["user"]["user_type"] == "CL") {
-                  this.rootPage = TabsPage;
-                }
-                else {
-                  this.rootPage = Tabs2Page;
-                }
+                this.storage.LoadDomicilios().then(() => {
+                  if(this.storage.data.user["user"]["user_type"] == "CL") {
+                    this.rootPage = TabsPage;
+                  }
+                  else {
+                    this.rootPage = Tabs2Page;
+                  }
+                });
               });
             }
             else {

@@ -14,7 +14,7 @@
         <ion-item-divider color="primary">Danos un poco de información de lo que necesitas</ion-item-divider>
         <ion-item>
             <ion-label stacked ion-text color="primary">¿Qué tipo de diligencia buscas?</ion-label>
-            <ion-select [(ngModel)]="tipo" interface="action-sheet">
+            <ion-select [(ngModel)]="tipo" interface="action-sheet" placeholder="Elige un tipo" cancelText="Cancelar">
                 <ion-option value="pago">Realizar un pago</ion-option>
                 <ion-option value="domicilio">Transportar objetos</ion-option>
                 <ion-option value="otro">Otro</ion-option>

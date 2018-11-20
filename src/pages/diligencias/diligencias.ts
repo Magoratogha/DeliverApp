@@ -10,9 +10,11 @@ import { StorageProvider } from '../../providers/storage/storage';
 export class DiligenciasPage {
 
   dataUs:any;
+  domicilios:any[];
 
   constructor(private storage: StorageProvider, private navParams: NavParams, public navCtrl: NavController, private modalCtrl: ModalController) {
-    this.dataUs = this.storage.data.user; 
+    this.dataUs = this.storage.data.user;
+    this.domicilios = this.storage.data.domicilios; 
   }
 
   Nuevo(){
@@ -20,8 +22,7 @@ export class DiligenciasPage {
     modal.present();
     modal.onDidDismiss(parametros => {
       if(parametros){
-        console.log("El modal trajo esta info:")
-        console.log(parametros);
+        this.storage.SetDomicilios(parametros);
       }
       else{
         console.log("El modal se cerró sin parámetros")

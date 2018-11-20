@@ -44,8 +44,6 @@ export class HomePage {
     modal.present();
     modal.onDidDismiss(parametros => {
       if(parametros){
-        console.log("El modal trajo esta info:")
-        console.log(parametros);
       }
       else{
         console.log("El modal se cerró sin parámetros")

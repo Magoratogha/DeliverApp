@@ -7,7 +7,8 @@ export class StorageProvider {
   data = {
     "user": {},
     "tuto": true,
-    "loggued": false
+    "loggued": false,
+    "domicilios": []
   }
 
   constructor(private storage: Storage) {  
@@ -31,7 +32,15 @@ export class StorageProvider {
 
   LoadData() {
     return this.storage.get('user').then((value) => {
-      this.data.user = (value); 
+      this.data.user = value; 
+    });
+  }
+
+  LoadDomicilios() {
+    return this.storage.get('domicilios').then((value) => {
+      if(value){
+        this.data.domicilios = value; 
+      }
     });
   }
 
@@ -48,6 +57,16 @@ export class StorageProvider {
   SetData(value: any) {
     this.data.user = value;
     return this.storage.set('user', value);
+  }
+
+  SetDomicilios(value: any) {
+    this.data.domicilios.push(value);
+    return this.storage.set('domicilios', this.data.domicilios);
+  }
+
+  RemoveDomicilios() {
+    this.data.domicilios = [];
+    return this.storage.remove('domicilios');
   }
 
   RemoveUserData() {

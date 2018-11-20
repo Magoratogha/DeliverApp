@@ -1,37 +1,35 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>PQRS</ion-title>
+        <ion-title>Contacto</ion-title>
         <ion-buttons end>
             <button ion-button (tap)="Cancelar()">
-        Cancelar
-      </button>
+                Cancelar
+            </button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <h5 ion-text color="primary">¿Qué quieres decirnos?</h5>
-    <ion-list>
-        <ion-item>
-            <ion-label>Razón del mensaje</ion-label>
-            <ion-select [(ngModel)]="diligencia" interface="action-sheet">
-                <ion-option value="nes">Peticion</ion-option>
-                <ion-option value="n64">Queja</ion-option>
-                <ion-option value="ps">Reclamo</ion-option>
-                <ion-option value="ps">Sugerencia</ion-option>
-            </ion-select>
-        </ion-item>
-    </ion-list>
+    <h5 ion-text color="primary">¿Cuál es la razón de tu mesaje?</h5>
+    <ion-item>
+        <ion-label>
+            Elige un tipo
+        </ion-label>
+        <ion-select [(ngModel)]="tipo" interface="action-sheet" cancelText="Cancelar" style="padding-left: 2%;">
+            <ion-option value="P">Peticion</ion-option>
+            <ion-option value="Q">Queja</ion-option>
+            <ion-option value="R">Reclamo</ion-option>
+            <ion-option value="S">Sugerencia</ion-option>
+        </ion-select>
+    </ion-item>
     <h5 ion-text color="primary">Escribe tu mensaje</h5>
     <p>Cuéntanos detalladamente qué podemos hacer por ti.</p>
-    <ion-list>
-        <ion-item>
-            <ion-textarea placeholder="Escribe algo..."></ion-textarea>
-        </ion-item>
-    </ion-list>
+    <ion-item>
+        <ion-textarea [(ngModel)]="texto" placeholder="Escribe algo..."></ion-textarea>
+    </ion-item>
     <div padding>
         <button ion-button block round (tap)="Enviar()">
-      Enviar
-    </button>
+            Enviar
+        </button>
     </div>
 </ion-content>

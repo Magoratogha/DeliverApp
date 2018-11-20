@@ -1,7 +1,17 @@
 <ion-content padding>
-    <h1 ion-text color="primary" padding text-center>Mis diligencias</h1>
-    <p padding-horizontal text-center>Parece que aún no haz solicitado ninguna diligencia, toca el + para solicitar una.</p>
+    <h1 ion-text color="primary" padding text-center>Mis Solicitudes</h1>
+    <p *ngIf="domicilios.length == 0" padding-horizontal text-center>Parece que aún no haz solicitado ninguna diligencia, toca el + para solicitar una.</p>
+    <ion-list *ngIf="!domicilios.length == 0">
+        <ion-item *ngFor="let domicilio of domicilios">
+            <ion-icon *ngIf="domicilio['type'] == 'pago'" name="cash" item-start color="primary"></ion-icon>
+            <ion-icon *ngIf="domicilio['type'] == 'domicilio'" name="paper-plane" item-start color="primary"></ion-icon>
+            <ion-icon *ngIf="domicilio['type'] == 'otro'" name="alert" item-start color="primary"></ion-icon>
+            <h2>{{domicilio["type"]}}</h2>
+            <h3>{{domicilio["willing_pay"]}}</h3>
+            <p text-wrap>{{domicilio["description"]}}</p>
+        </ion-item>
+    </ion-list>
     <ion-fab bottom right>
-        <button [disabled]="true" ion-fab (tap)="Nuevo()"><ion-icon name="add"></ion-icon></button>
+        <button ion-fab (tap)="Nuevo()"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
 </ion-content>

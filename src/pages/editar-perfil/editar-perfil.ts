@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, ViewController, NavParams } from 'ionic-angular';
+import { ViewController, NavParams, ToastController } from 'ionic-angular';
+import { StorageProvider } from '../../providers/storage/storage';
 
 @Component({
   selector: 'page-editar-perfil',
@@ -7,15 +8,30 @@ import { IonicPage, ViewController, NavParams } from 'ionic-angular';
 })
 export class EditarPerfilPage {
 
-  constructor(public viewCtrl: ViewController, public navParams: NavParams) {
+  dataUs:any;
+  name:any;
+  email:any;
+  numero:any;
+
+  constructor(private toastCtrl: ToastController, private storage: StorageProvider, public viewCtrl: ViewController, public navParams: NavParams) {
+    this.dataUs = this.storage.data.user;
   }
 
   GuardarCambios(){
-    let data = {
-      nombre:"Información de modal",
-      dato:"Hola soy un modal :y"
+    if(this.name && this.email && this.numero){
+      this.dataUs["user"]["full_name"] = this.name;
+      this.dataUs["user"]["email"] = this.email;  
+      this.dataUs["user"]["cellphone"] = this.numero;
+      this.storage.SetData(this.dataUs).then(() => {
+        this.viewCtrl.dismiss();
+      });
     }
-    this.viewCtrl.dismiss(data);
+    else {
+      this.toastCtrl.create({
+        message: 'Todos los campos son obligatorios!',
+        duration: 3000
+      }).present();
+    }
   }
 
   Cancelar(){
